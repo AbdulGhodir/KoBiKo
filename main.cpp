@@ -103,6 +103,17 @@ void binerToDesimal(int biner) {
     std::cout << desimal;
 }
 
+void binerToOktal(int biner) {
+    int desimal = 0, i = 0, sisa;
+    while (biner != 0) {
+        sisa = biner % 10;
+        desimal = desimal + sisa * pow(2, i);
+        biner = biner / 10;
+        i++;
+    }
+    desimalToOktal(desimal);
+}
+
 
 int main() {
     int pilihan;
