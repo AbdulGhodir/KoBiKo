@@ -164,6 +164,23 @@ void HeksaToBiner(string heksa) {
     
 }
 
+void HeksaToDesimal(string heksa) {
+    int iterasi = 0;
+    int hasil = 0;
+    int sisa = 0;
+    int basis = 16;
+
+    for (int i = heksa.length() - 1; i >= 0; i--) {
+        sisa = convertHeksa(heksa[i]);
+        hasil += sisa * pow(16, iterasi);
+        iterasi++;
+    }
+
+    cout << hasil;
+    cout << endl << endl;
+    
+}
+
 int oktalToDesimal(int oktal){
     int hasilKonvert = 0;
     int sisa = 0;
@@ -193,8 +210,9 @@ void oktalToHeksa(int oktal){
 }
 
 int main() {
-    int pilihan;
+    int pilihan = 1;
     int convert;
+    string heksa;
     
     while (pilihan != 0) {
         cout << "Masukkan pilihan konverter: " << endl;
@@ -207,6 +225,9 @@ int main() {
         cout << "7. Oktal ke Desimal\n";
         cout << "8. Oktal ke Biner\n";
         cout << "9. Oktal ke Heksa\n";
+        cout << "10. Heksa ke Desimal\n";
+        cout << "11. Heksa ke Biner\n";
+        cout << "12. Heksa ke Oktal\n";
         cout << "0. Keluar\n";
         cin >> pilihan;
 
@@ -266,6 +287,24 @@ int main() {
             cin >> convert;
             cout << "Hasil konversi : ";
             oktalToHeksa(convert);
+            break;
+        case 10:
+            cout << "Masukkan bilangan heksadesimal : ";
+            cin >> heksa;
+            cout << "Hasil konversi : ";
+            HeksaToDesimal(heksa);
+            break;
+        case 11:
+            cout << "Masukkan bilangan heksadesimal : ";
+            cin >> heksa;
+            cout << "Hasil konversi : ";
+            HeksaToBiner(heksa);
+            break;
+        case 12:
+            cout << "Masukkan bilangan heksadesimal : ";
+            cin >> heksa;
+            cout << "Hasil konversi : ";
+            // HeksaToOktal(heksa);
             break;
         default:
             break;
